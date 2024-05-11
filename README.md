@@ -18,6 +18,10 @@ O chatbot permite que os usuários enviem perguntas para a IA do Gemini e receba
 - react-markdown: Renderiza Markdown de forma segura em componentes React.
 - API do Gemini: A API do Gemini oferece modelos de linguagem avançados para diversas tarefas, como geração de texto, tradução, resumo e resposta a perguntas.
 
+## Versão online do projeto:
+
+- Caso você queira ver o projeto em execução de forma mais rápida e facíl acesse o link: https://ia-ajudando-autismo.vercel.app/
+
 ## Como Executar o Projeto:
 
 1. **Clone o Repositório:**
