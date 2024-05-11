@@ -22,13 +22,20 @@ O chatbot permite que os usuários enviem perguntas para a IA do Gemini e receba
 
 1. **Clone o Repositório:**
     ```bash
-    git clone https://github.com/Maycon40/ia_ajudando_autismo.git```
-Instale as Dependências:
-npm install
-Configure a API do Gemini:
-Crie uma conta na plataforma do Gemini e obtenha suas credenciais de API.
-Crie um arquivo .env na pasta raiz do projeto e defina as seguintes variáveis de ambiente:
-GEMINI_API_KEY=SUA_CHAVE_DE_API
-Inicie o Servidor de Desenvolvimento:
-npm run dev
-Acesse o aplicativo em http://localhost:3000.
+    git clone https://github.com/Maycon40/ia_ajudando_autismo.git
+    ```
+2. **Instale as Dependências:**
+    ```bash
+    npm install
+    ```
+3. **Configure a API do Gemini:**
+- Crie uma conta na plataforma do Gemini e obtenha suas credenciais de API.
+- Crie um arquivo .env na pasta raiz do projeto e defina as seguintes variáveis de ambiente:
+    ```bash
+    GEMINI_API_KEY=SUA_CHAVE_DE_API
+    ```
+4. **Inicie o Servidor de Desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
+- Acesse o aplicativo em http://localhost:3000.
