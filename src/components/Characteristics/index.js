@@ -13,7 +13,6 @@ export default function CharacteristicsForm({ apiKey }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log("responses:", responses);
 
         const questionsWithEvaluation = []
 
