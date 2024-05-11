@@ -6,8 +6,6 @@ import { startChat } from '@/utils/Gemini';
 const ChatForm = ({ apiKey }) => {
     const { question, setQuestion, messages, setMessages, isLoading, setIsLoading } = useAuthContext();
 
-    console.log("startChat", startChat)
-
     const chatGemini = startChat(apiKey);
 
     const handleSubmit = async (e) => {
