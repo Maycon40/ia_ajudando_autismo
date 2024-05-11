@@ -12,7 +12,6 @@ const Chat = ({ apiKey }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     if (!chatGemini) {
-        console.log("apiKey", apiKey)
         chatGemini = startChat(apiKey);
     }
 
