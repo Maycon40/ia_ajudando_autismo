@@ -32,6 +32,7 @@ export default function CharacteristicsForm({ apiKey }) {
 
     return (
         <form onSubmit={handleSubmit} className="container mx-auto p-4">
+            <p className="font-bold mb-6">Aviso: Esse questionário não substitui a avaliação de um profissional, mas pode auxiliar na identificação de características do autismo.</p>
             <h2 className="text-xl font-bold mb-4">Questionário sobre Autismo</h2>
             {questionsFormCharacteristics.map((question, index) => (
                 <div key={index} className="mb-4">
