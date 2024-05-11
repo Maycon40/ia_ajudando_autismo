@@ -4,11 +4,11 @@ Este repositório hospeda o projeto desenvolvido durante a Imersão de IA da Alu
 
 ## Objetivo
 
-O objetivo principal deste projeto é utilizar o poder da Inteligência Artificial para disseminar conhecimento sobre o autismo. Através de ferramentas e recursos de IA, como o chatbot, buscamos promover a conscientização, o entendimento e a inclusão de pessoas autistas na sociedade.
+O objetivo principal deste projeto é utilizar o poder da Inteligência Artificial para disseminar conhecimento sobre o autismo. Através de ferramentas e recursos de IA, como o chatbot e embed, buscamos promover a conscientização, o entendimento e a inclusão de pessoas autistas na sociedade.
 
 ## Funcionamento
 
-O chatbot permite que os usuários enviem perguntas para a IA do Gemini e recebam respostas formatadas em Markdown. Essa interface amigável facilita a comunicação e a compreensão das informações fornecidas pela IA.
+O chatbot permite que os usuários enviem perguntas para a IA do Gemini e recebam respostas formatadas em Markdown. Essa interface amigável facilita a comunicação e a compreensão das informações fornecidas pela IA. Além do chatbot existe uma outra pagina chamada características que usa o embed da Inteligencia Artificial para apontar se a pessoa tem características do autismo.
 
 ## Tecnologias Utilizadas:
 
@@ -16,6 +16,7 @@ O chatbot permite que os usuários enviem perguntas para a IA do Gemini e receba
 - Tailwind CSS: Framework CSS para estilização rápida e personalizável.
 - React: Biblioteca JavaScript para construção de interfaces de usuário.
 - react-markdown: Renderiza Markdown de forma segura em componentes React.
+- Mathjs: Biblioteca Javascript que serve para fazer cálculos matemáticos.
 - API do Gemini: A API do Gemini oferece modelos de linguagem avançados para diversas tarefas, como geração de texto, tradução, resumo e resposta a perguntas.
 
 ## Versão online do projeto:
@@ -46,4 +47,4 @@ O chatbot permite que os usuários enviem perguntas para a IA do Gemini e receba
 
 ## Fontes
 
-Fonte para as perguntas sobre as caracteristicas do autismo: https://psiquiatriapaulista.com.br/saiba-como-identificar-as-caracteristicas-do-autismo/
+Fonte para as perguntas sobre as características do autismo: https://psiquiatriapaulista.com.br/saiba-como-identificar-as-caracteristicas-do-autismo/
