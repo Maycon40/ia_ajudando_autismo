@@ -1,3 +1,2 @@
-import startChat from "./startChat"
-
-export { startChat };
+export * from "./startChat"
+export * from "./getResponseGemini"

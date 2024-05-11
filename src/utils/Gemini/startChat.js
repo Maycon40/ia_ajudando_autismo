@@ -3,10 +3,12 @@ import {
     HarmBlockThreshold,
 } from "@google/generative-ai";
 
-import Connect from "./connect.js";
+import Connect from "./connect";
 
-export default function startChat(apiKey) {
-    const model = Connect(apiKey)
+export function startChat(apiKey) {
+    const modelName = "gemini-1.5-pro-latest";
+
+    const model = Connect(apiKey, modelName);
 
     const generationConfig = {
         temperature: 1,

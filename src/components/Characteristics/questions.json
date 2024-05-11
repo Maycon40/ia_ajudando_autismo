@@ -1,0 +1,78 @@
+[
+  {
+    "question": "Você brinca sozinha por horas com o mesmo brinquedo?",
+    "type": "radio",
+    "options": [
+      "Sim",
+      "Não"
+    ],
+    "evaluation": {
+      "Sim": "Essa é uma característica do autismo",
+      "Não": "Essa é uma característica comum"
+    },
+    "printEvaluation": false
+  },
+  {
+    "question": "Você tem dificuldade em comer alimentos com diferentes texturas?",
+    "type": "radio",
+    "options": [
+      "Frequentemente",
+      "Ocasionalmente",
+      "Raramente",
+      "Nunca"
+    ],
+    "evaluation": {
+      "Frequentemente": "Essa é uma característica do autismo",
+      "Ocasionalmente": "Essa é uma característica leve do autismo",
+      "Raramente": "Essa é uma característica comum",
+      "Nunca": "Essa é uma característica comum"
+    },
+    "printEvaluation": false
+  },
+  {
+    "question": "Você tem dificuldade em direcionar e associar o olhar ao objeto que está sendo apontado?",
+    "type": "radio",
+    "options": [
+      "Sim",
+      "Não"
+    ],
+    "evaluation": {
+      "Sim": "Essa é uma característica do autismo",
+      "Não": "Essa é uma característica comum"
+    },
+    "printEvaluation": false
+  },
+  {
+    "question": "Você tem dificuldade em expressar seus sentimentos?",
+    "type": "radio",
+    "options": [
+      "Sim",
+      "Não"
+    ],
+    "evaluation": {
+      "Sim": "Essa é uma característica do autismo",
+      "Não": "Essa é uma característica comum"
+    },
+    "printEvaluation": false
+  },
+  {
+    "question": "Como você se sente ao mudar de ambiente?",
+    "type": "textarea",
+    "evaluation": {
+        "Mim sinto mal nessa situação": "Essa é uma característica do autismo",
+        "Mim sinto bem nessa situação": "Essa é uma característica comum"
+    },
+    "responseGemini": "",
+    "printEvaluation": false
+  },
+  {
+    "question": "Como você sente quando ocorre um imprevisto?",
+    "type": "textarea",
+    "evaluation": {
+        "Mim sinto mal nessa situação": "Essa é uma característica do autismo",
+        "Mim sinto bem nessa situação": "Essa é uma característica comum"
+    },
+    "responseGemini": "",
+    "printEvaluation": false
+  }
+]

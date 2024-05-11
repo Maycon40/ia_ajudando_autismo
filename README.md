@@ -43,3 +43,7 @@ O chatbot permite que os usuários enviem perguntas para a IA do Gemini e receba
     npm run dev
     ```
 - Acesse o aplicativo em http://localhost:3000.
+
+## Fontes
+
+Fonte para as perguntas sobre as caracteristicas do autismo: https://psiquiatriapaulista.com.br/saiba-como-identificar-as-caracteristicas-do-autismo/

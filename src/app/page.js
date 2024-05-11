@@ -1,16 +1,21 @@
-import Chat from '../components/Chat';
+import Content from '@/components/Content';
+import Menu from '@/components/Menu'
 import dotenv from 'dotenv';
+import math from "mathjs"
 
 dotenv.config()
 
 export default function Home() {
+    console.log("math home", math)
+    const apiKey = process.env.GEMINI_API_KEY
+
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <div className="text-center mt-8">
-                <h1 className="text-3xl font-bold text-gray-800 mb-4">Autismo</h1>
-                <h2 className="text-xl font-semibold text-gray-600 mb-10">Entenda mais sobre o autismo fazendo uma pergunta no campo abaixo</h2>
+        <main className="flex min-h-screen flex-col items-center justify-between p-10">
+            <div className="text-center">
+                <h1 className="text-5xl font-bold text-gray-800 mb-8">Autismo</h1>
+                <Menu />
             </div>
-            <Chat apiKey={process.env.GEMINI_API_KEY} />
+            <Content apiKey={apiKey} />
         </main>
     );
 }

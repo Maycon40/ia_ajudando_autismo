@@ -1,0 +1,71 @@
+import Connect from "./connect";
+import * as math from 'mathjs';
+
+async function generateEmbedding(text, embeddingModel) {
+    const result = await embeddingModel.embedContent(text, "RETRIEVAL_DOCUMENT");
+
+    return result["embedding"]["values"];
+}
+
+async function query(text, embeddingDocuments, embeddingModel) {
+  let result = await embeddingModel.embedContent(text, "RETRIEVAL_QUERY");
+
+  console.log("embed query", result);
+
+  result = result["embedding"]["values"];
+
+  const embeddings = math.matrix(embeddingDocuments);
+  const embeddingResult = math.transpose(math.matrix([result]));
+  const dot = math.multiply(
+    embeddings,
+    embeddingResult
+  );
+
+  let maxIndex = 0;
+  let maxValue = dot.get([0, 0]); // Acessar o valor na posição [0, 0]
+  for (let i = 1; i < dot.size()[0]; i++) {
+    const value = dot.get([i, 0]); // Acessar o valor na posição [i, 0]
+    if (value > maxValue) {
+      maxValue = value;
+      maxIndex = i;
+    }
+  }
+  const index = maxIndex;
+
+  console.log("maxIndex", maxIndex);
+  console.log("maxValue", maxValue);
+  console.log("index", index);
+
+  return index;
+}
+
+export async function getResponseGemini(question, response, apiKey) {
+    console.log("math", math)
+
+    const modelName = "embedding-001"
+    const embeddingModel = Connect(apiKey, modelName)
+
+    const documents = Object.keys(question.evaluation);
+
+    console.log("documents", documents);
+    console.log("response", response);
+
+    const embeddingDocuments = [];
+
+    for (const document of documents) {
+        const embedding = await generateEmbedding(
+            document,
+            embeddingModel
+        );
+
+        embeddingDocuments.push(embedding);
+    }
+
+    const index = await query(
+        response,
+        embeddingDocuments,
+        embeddingModel
+    );
+
+    return documents[index]
+}
