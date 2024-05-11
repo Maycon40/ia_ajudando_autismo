@@ -4,25 +4,30 @@ import { useState } from 'react';
 import { startChat } from '../../utils/Gemini';
 import Markdown from 'react-markdown';
 
-const chatGemini = startChat();
+var chatGemini = null;
 
-const Chat = () => {
+const Chat = ({ apiKey }) => {
     const [question, setQuestion] = useState('');
     const [messages, setMessages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    if (!chatGemini) {
+        console.log("apiKey", apiKey)
+        chatGemini = startChat(apiKey);
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         setIsLoading(true)
         setQuestion('')
-        setMessages([...messages, { text: question, sender: 'você' }]);
+        setMessages([...messages, { text: question, sender: 'Você' }]);
 
         const result = await chatGemini.sendMessage(question);
         const response = result.response;
         const message = response.text()
 
-        setMessages([...messages, { text: question, sender: 'você' }, { text: message, sender: 'gemini' }]);
+        setMessages([...messages, { text: question, sender: 'Você' }, { text: message, sender: 'Gemini' }]);
         setIsLoading(false)
     };
 

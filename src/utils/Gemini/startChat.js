@@ -5,8 +5,8 @@ import {
 
 import Connect from "./connect.js";
 
-export default function startChat() {
-    const model = Connect()
+export default function startChat(apiKey) {
+    const model = Connect(apiKey)
 
     console.log("model", model)
 
