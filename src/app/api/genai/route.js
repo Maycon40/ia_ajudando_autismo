@@ -1,40 +1,37 @@
-import { HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
+// /app/api/genai/route.js
+import { GoogleGenAI } from "@google/genai";
+import dotenv, { config } from "dotenv";
 
-import Connect from "./connect";
+dotenv.config();
 
-export function startChat() {
-  const model = Connect();
+export async function POST(req) {
+  try {
+    const { messages } = await req.json();
 
-  const generationConfig = {
-    temperature: 1,
-    topK: 0,
-    topP: 0.95,
-    maxOutputTokens: 8192,
-  };
+    console.log("messages", messages);
 
-  const safetySettings = [
-    {
-      category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-      threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-    },
-    {
-      category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-      threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-    },
-    {
-      category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-      threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-    },
-    {
-      category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-      threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-    },
-  ];
+    const modelName = process.env.MODEL_NAME?.trim() || "gemini-2.5-flash";
+    const apiKey = process.env.GEMINI_API_KEY?.trim();
 
-  const chat = model.startChat({
-    generationConfig,
-    safetySettings,
-    history: [
+    if (!modelName || !apiKey) {
+      return new Response(
+        JSON.stringify({
+          error: "Variáveis de ambiente não carregadas corretamente",
+        }),
+        { status: 500 }
+      );
+    }
+
+    const ai = new GoogleGenAI({ apiKey });
+
+    const generationConfig = {
+      temperature: 1,
+      topK: 0,
+      topP: 0.95,
+      maxOutputTokens: 8192,
+    };
+
+    const initialMessages = [
       {
         role: "user",
         parts: [
@@ -51,8 +48,31 @@ export function startChat() {
           },
         ],
       },
-    ],
-  });
+    ];
 
-  return chat;
+    const message = messages.pop();
+
+    console.log("message", message);
+
+    const chatMessages = [...initialMessages, ...messages];
+
+    const chat = await ai.chats.create({
+      model: modelName,
+      history: chatMessages,
+      config: generationConfig,
+    });
+
+    const response = await chat.sendMessage({ message: message.content });
+
+    console.log("response", response);
+    console.log("response", response.text);
+
+    return new Response(JSON.stringify({ response: response.text }), {
+      status: 200,
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({ error: err.message }), {
+      status: 500,
+    });
+  }
 }

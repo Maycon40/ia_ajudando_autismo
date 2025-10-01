@@ -1,14 +1,13 @@
-import ChatMessages from './messages';
-import ChatForm from './form';
+import ChatMessages from "./messages";
+import ChatForm from "./form";
 
-const Chat = ({ apiKey }) => {
-
-    return (
-        <div className="container mx-auto">
-            <ChatMessages />
-            <ChatForm apiKey={apiKey} />
-        </div>
-    );
+const Chat = () => {
+  return (
+    <div className="container mx-auto">
+      <ChatMessages />
+      <ChatForm />
+    </div>
+  );
 };
 
 export default Chat;
